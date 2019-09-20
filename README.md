@@ -74,7 +74,7 @@ This is a POST request to the STACS network to subscribe to the asset. <br>
 
 ### <a name="inspect">  Verify account
 This is a POST request to either STACS or Ubin network to fetch the account details in order to verify that transaction has gone through. <br>
-**/v1/inspectAccount**
+**/v1/verifyAccount**
 
 **_Request body:_**
 
