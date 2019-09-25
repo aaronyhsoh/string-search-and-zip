@@ -6,6 +6,7 @@ This document comprises of the APIs that are required for the UI.
 * [Retrieve information about an asset](#retrieve)
 * [Subscribe to an asset](#subscribe)
 * [Verify account](#inspect)
+* [Dispute a transaction](#dispute)
 
 ### <a name="issue"> Issue an asset on the STACS network
 This is a POST request to the STACS network to issue an asset. <br>
@@ -93,5 +94,29 @@ This is a POST request to either STACS or Ubin network to fetch the account deta
 | responseCode  | String | Response code that shows the status of the request |
 | msg | String | Details of the response code |
 | data | Object | Contains the following information of the account: <ul><li>Token code, unique ID and name<li>Amount of token</li><li>Status of transaction</li><li>Date of transaction</li></ul> |
+
+### <a name="dispute">  Dispute a transaction
+This is a POST request to Ubin network to dispute a transaction. <br>
+**/v1/disputeTransaction**
+
+**_Request body:_**
+
+| Attribute     | Type          | Description                     |
+| ------------- |:-------------:| :-------------------------------|
+| transactionID | String | The ID of the transaction to be disputed |
+| accountInfo | Object | Contains the following information about the entity subscribing to asset:<ul><li>Wallet address</li><li>Account type</li></ul> |
+| tickerCode | String | Abbreviation of asset |
+| amount | Long | Amount to be disputed |
+| extendedInfo | Object | For future upgrade options |
+
+**_Response body:_**
+
+| Attribute     | Type          | Description                     |
+| ------------- |:-------------:| :-------------------------------|
+| responseCode  | String | Response code that shows the status of the request |
+| msg | String | Details of the response code |
+| data | Object | Contains the following information about the dispute submission: <ul><li>Date and time of dispute</li><li>Amount disputed</li><li>Status of dispute</li></ul> |
+
+
 
 
